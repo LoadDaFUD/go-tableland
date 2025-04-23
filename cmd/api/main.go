@@ -138,6 +138,11 @@ func main() {
 			log.Error().Err(err).Msg("closing chains stack")
 		}
 
+		fmt.Println("Looking for config at:", configPath)
+		fmt.Println("Viper config file used:", viper.ConfigFileUsed())
+
+
+
 		// Close backuper.
 		ctx, cls = context.WithTimeout(context.Background(), time.Second*20)
 		defer cls()
