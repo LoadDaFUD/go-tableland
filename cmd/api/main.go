@@ -11,6 +11,7 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"os"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
