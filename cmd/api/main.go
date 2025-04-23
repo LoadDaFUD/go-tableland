@@ -138,9 +138,10 @@ func main() {
 			log.Error().Err(err).Msg("closing chains stack")
 		}
 
-		fmt.Println("Looking for config at:", configPath)
-		fmt.Println("Viper config file used:", viper.ConfigFileUsed())
-
+		fmt.Println("=== Environment Variables ===")
+    for _, e := range os.Environ() {
+        fmt.Println(e)
+    }
 
 
 		// Close backuper.
