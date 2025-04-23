@@ -15,14 +15,12 @@ RUN go mod download
 COPY . .
 RUN GOOS=linux go build -o api ./cmd/api
 
+
 # Final minimal image
 FROM alpine
 
 # Copy the compiled binary
 COPY --from=builder /app/api /app/api
-
-# 👇 Copy the environment file (adjust path if needed)
-COPY ./deployed/mainnet/api/.env_validator /app/.env
 
 # Set working directory and entrypoint
 WORKDIR /app
