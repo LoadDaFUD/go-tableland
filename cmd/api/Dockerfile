@@ -13,7 +13,8 @@ RUN go mod download
 
 # Copy source and build the API binary
 COPY . .
-RUN BIN_BUILD_FLAGS="GOOS=linux" make build-api
+RUN GOOS=linux go build -o api ./cmd/api
+
 
 # Final minimal image
 FROM alpine
