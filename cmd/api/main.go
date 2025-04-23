@@ -12,6 +12,7 @@ import (
 	"sync"
 	"time"
 	"os"
+	"github.com/spf13/viper"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -143,7 +144,7 @@ func main() {
     for _, e := range os.Environ() {
         fmt.Println(e)
     }
-
+fmt.Println("Viper config file used:", viper.ConfigFileUsed())
 
 		// Close backuper.
 		ctx, cls = context.WithTimeout(context.Background(), time.Second*20)
