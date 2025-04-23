@@ -7,7 +7,7 @@ HTTP_PORT ?= 8080
 
 GO_BINDATA=go run github.com/go-bindata/go-bindata/v3/go-bindata@v3.1.3
 SQLC=go run github.com/kyleconroy/sqlc/cmd/sqlc@v1.15.0
-GOVVV=go run github.com/ahmetb/govvv@v0.3.0 
+GOVVV=go run github.com/ahmetb/govvv@v0.3.0
 ABIGEN=go run github.com/ethereum/go-ethereum/cmd/abigen@v1.11.4
 
 GOVVV_FLAGS=$(shell $(GOVVV) -flags -version $(BIN_VERSION) -pkg $(shell go list ./buildinfo))
@@ -41,7 +41,7 @@ clean-mocks:
 	rm -rf mocks
 .PHONY: clean-mocks
 
-EVM_EVENTS_ORIGIN:="docker/deployed/testnet/api/backup_database.db"
+EVM_EVENTS_ORIGIN:="docker/deployed/mainnet/api/backup_database.db"
 EVM_EVENTS_TARGET:="pkg/eventprocessor/impl/testdata/evm_history.db"
 generate-history-db:
 	rm -f ${EVM_EVENTS_TARGET}
@@ -49,7 +49,7 @@ generate-history-db:
 	zstd -f ${EVM_EVENTS_TARGET}
 	rm ${EVM_EVENTS_TARGET}
 
-# Build 
+# Build
 build-api:
 	go build -ldflags="${GOVVV_FLAGS}" ./cmd/api
 .PHONY: build-api
@@ -67,7 +67,7 @@ image:
 .PHONY: image
 
 # Test
-test: 
+test:
 	go test ./... -short -race
 .PHONY: test
 
@@ -93,5 +93,5 @@ gen-api-v1:
 		&& sed -i 's/\*OneOfTableAttributesValue/interface{}/' model_table_attributes.go \
 		&& sed -i 's/\OneOfQueryParamsItems/interface{}/' model_query.go \
 	"
-	sudo chown -R ${USER} ${APIV1} 
+	sudo chown -R ${USER} ${APIV1}
 .PHONY: gen-api-v1
