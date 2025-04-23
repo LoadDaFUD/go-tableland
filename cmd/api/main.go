@@ -62,7 +62,7 @@ func main() {
 	for _, e := range os.Environ() {
 			fmt.Println(e)
 	}
-fmt.Println("Viper config file used:", viper.ConfigFileUsed())
+fmt.Println("dirPath used  here:", dirPath)
 fmt.Println("config file used here:", config)
 
 
