@@ -58,6 +58,14 @@ var closerNoop = func(context.Context) error { return nil }
 func main() {
 	config, dirPath := setupConfig()
 
+	fmt.Println("=== Environment Variables ===")
+	for _, e := range os.Environ() {
+			fmt.Println(e)
+	}
+fmt.Println("Viper config file used:", viper.ConfigFileUsed())
+fmt.Println("config file used here:", config)
+
+
 	// Logging.
 	logging.SetupLogger(buildinfo.GitCommit, config.Log.Debug, config.Log.Human)
 
@@ -140,11 +148,6 @@ func main() {
 			log.Error().Err(err).Msg("closing chains stack")
 		}
 
-		fmt.Println("=== Environment Variables ===")
-    for _, e := range os.Environ() {
-        fmt.Println(e)
-    }
-fmt.Println("Viper config file used:", viper.ConfigFileUsed())
 
 		// Close backuper.
 		ctx, cls = context.WithTimeout(context.Background(), time.Second*20)
