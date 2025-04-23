@@ -12,7 +12,6 @@ import (
 	"sync"
 	"time"
 	"os"
-	"github.com/spf13/viper"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
