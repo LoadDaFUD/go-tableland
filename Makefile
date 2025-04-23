@@ -41,7 +41,7 @@ clean-mocks:
 	rm -rf mocks
 .PHONY: clean-mocks
 
-EVM_EVENTS_ORIGIN:="docker/deployed/mainnet/api/backup_database.db"
+EVM_EVENTS_ORIGIN:="docker/deployed/testnet/api/backup_database.db"
 EVM_EVENTS_TARGET:="pkg/eventprocessor/impl/testdata/evm_history.db"
 generate-history-db:
 	rm -f ${EVM_EVENTS_TARGET}
