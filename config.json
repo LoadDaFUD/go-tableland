@@ -1,0 +1,77 @@
+{
+    "Impl": "mesa",
+    "HTTP": {
+        "Port": "8080",
+        "RateLimInterval": "1s",
+        "MaxRequestPerInterval": 10,
+        "ApiKey" : "${HTTP_RATE_LIMITER_API_KEY}",
+        "TLSCert": "${VALIDATOR_TLS_CERT}",
+        "TLSKey": "${VALIDATOR_TLS_KEY}"
+    },
+    "Gateway": {
+        "ExternalURIPrefix": "https://tableland.network",
+        "MetadataRendererURI": "https://tables.tableland.xyz",
+        "AnimationRendererURI": "https://tables.tableland.xyz"
+    },
+    "DB": {
+        "Port": "5432"
+    },
+    "TableConstraints": {
+        "MaxRowCount": 500000
+    },
+    "QueryConstraints": {
+        "MaxWriteQuerySize": 35000,
+        "MaxReadQuerySize": 35000
+    },
+    "Metrics": {
+        "Port": "9090"
+    },
+    "Log": {
+        "Human": false,
+        "Debug": true
+    },
+    "Analytics": {
+        "FetchExtraBlockInfo": true
+    },
+    "Backup": {
+        "Enabled": true,
+        "Dir": "backups",
+        "Frequency": 240,
+        "EnableVacuum": true,
+        "EnableCompression": true,
+        "Pruning": {
+            "Enabled": true,
+            "KeepFiles": 5
+        }
+    },
+    "TelemetryPublisher": {
+        "Enabled": false,
+        "MetricsHubURL": "https://metricshub-mainnet-mrgr43cf5q-uw.a.run.app",
+        "MetricsHubApiKey": "${METRICS_HUB_API_KEY}",
+        "PublishingInterval": "10s",
+        "ChainStackCollectFrequency": "15m"
+    },
+    "Chains": [
+        {
+           "Name": "PulseChain Mainnet",
+            "ChainID": 369,
+            "Registry": {
+                "EthEndpoint": "wss://rpc.pulsechain.com",
+                "ContractAddress": "0x9f7F971d8350F97Dc33dcd0D31d629Ca30067b3D"
+            },
+            "EventFeed": {
+                "ChainAPIBackoff": "15s",
+                "NewBlockPollFreq": "10s",
+                "MinBlockDepth": 0,
+                "PersistEvents": true
+            },
+            "EventProcessor": {
+                "BlockFailedExecutionBackoff": "10s",
+                "DedupExecutedTxns": true,
+                "WebhookURL": ""
+            },
+            "HashCalculationStep": 150
+        }
+
+    ]
+}
