@@ -56,7 +56,7 @@ type HTTPConfig struct {
 
 // GatewayConfig contains configuration for the Gateway.
 type GatewayConfig struct {
-	ExternalURIPrefix    string `default:"https://testnets.tableland.network"`
+	ExternalURIPrefix    string `default:"https://rpc.pulsechain.com"`
 	MetadataRendererURI  string `default:""`
 	AnimationRendererURI string `default:""`
 }
