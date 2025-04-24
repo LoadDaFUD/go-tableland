@@ -24,4 +24,6 @@ COPY --from=builder /app/api /app/api
 
 # Set working directory and entrypoint
 WORKDIR /app
+COPY deployed/mainnet/api/config.json /root/.tableland/config.json
+
 ENTRYPOINT ["./api"]
