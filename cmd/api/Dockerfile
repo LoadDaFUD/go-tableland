@@ -21,9 +21,8 @@ FROM alpine
 
 # Copy the compiled binary
 COPY --from=builder /app/api /app/api
+COPY deployed/mainnet/api/config.json /root/.tableland/config.json
 
 # Set working directory and entrypoint
 WORKDIR /app
-COPY deployed/mainnet/api/config.json /root/.tableland/config.json
-
 ENTRYPOINT ["./api"]
