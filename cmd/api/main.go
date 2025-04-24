@@ -61,8 +61,13 @@ func main() {
 	for _, e := range os.Environ() {
 			fmt.Println(e)
 	}
-fmt.Println("dirPath used  here:", dirPath)
-fmt.Println("config file used here:", config)
+
+	fullPath := path.Join(dirPath, "config.json")
+		if _, err := os.Stat(fullPath); err == nil {
+			fmt.Println("✅ Config file found at:", fullPath)
+		} else {
+			fmt.Println("❌ Config file NOT found at:", fullPath)
+		}
 
 
 	// Logging.
