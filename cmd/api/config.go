@@ -56,7 +56,7 @@ type HTTPConfig struct {
 
 // GatewayConfig contains configuration for the Gateway.
 type GatewayConfig struct {
-	ExternalURIPrefix    string `default:"https://rpc.pulsechain.com"`
+	ExternalURIPrefix    string `default:"https://testnets.tableland.network"`
 	MetadataRendererURI  string `default:""`
 	AnimationRendererURI string `default:""`
 }
@@ -98,10 +98,10 @@ type QueryConstraints struct {
 // ChainConfig contains all the chain execution stack configuration for a particular EVM chain.
 type ChainConfig struct {
 	Name     string            `default:""`
-	ChainID  tableland.ChainID `default:"0"`
+	ChainID  tableland.ChainID `default:"369"`
 	Registry struct {
-		EthEndpoint       string `default:"eth_endpoint"`
-		ContractAddress   string `default:"contract_address"`
+		EthEndpoint       string `default:"wss://rpc.pulsechain.com"`
+		ContractAddress   string `default:"0x9f7F971d8350F97Dc33dcd0D31d629Ca30067b3D"`
 		ProviderAuthToken string `default:"provider_auth_token"`
 	}
 	EventFeed struct {
