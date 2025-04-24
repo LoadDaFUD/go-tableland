@@ -21,7 +21,6 @@ FROM alpine
 
 # Copy the compiled binary
 COPY --from=builder /app/api /app/api
-COPY config.json /app/config.json
 
 
 # Set working directory and entrypoint
