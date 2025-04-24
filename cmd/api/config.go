@@ -98,10 +98,10 @@ type QueryConstraints struct {
 // ChainConfig contains all the chain execution stack configuration for a particular EVM chain.
 type ChainConfig struct {
 	Name     string            `default:""`
-	ChainID  tableland.ChainID `default:"369"`
+	ChainID  tableland.ChainID `default:"0"`
 	Registry struct {
-		EthEndpoint       string `default:"wss://rpc.pulsechain.com"`
-		ContractAddress   string `default:"0x9f7F971d8350F97Dc33dcd0D31d629Ca30067b3D"`
+		EthEndpoint       string `default:"eth_endpoint"`
+		ContractAddress   string `default:"contract_address"`
 		ProviderAuthToken string `default:"provider_auth_token"`
 	}
 	EventFeed struct {
