@@ -56,7 +56,7 @@
            "Name": "PulseChain Mainnet",
             "ChainID": 369,
             "Registry": {
-                "EthEndpoint": "wss://pulsechain-rpc.publicnode.com",
+                "EthEndpoint": "wss://rpc-pulsechain.g4mm4.io",
                 "ContractAddress": "0x9f7F971d8350F97Dc33dcd0D31d629Ca30067b3D"
             },
             "EventFeed": {
